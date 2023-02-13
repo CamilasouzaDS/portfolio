@@ -25,7 +25,7 @@ app.post('/person', async (req, res) => {
     try {
       await Person.create(person)
   
-      res.status(201).json({ message: 'Pessoa inserida no sistema com sucesso!' })
+      res.status(201).json({ message: 'connected!' })
     } catch (error) {
       res.status(500).json({ erro: error })
     }
@@ -48,7 +48,7 @@ app.post('/person', async (req, res) => {
       const person = await Person.findOne({ _id: id })
   
       if (!person) {
-        res.status(422).json({ message: 'Usuário não encontrado!' })
+        res.status(422).json({ message: 'No user found!' })
         return
       }
   
@@ -73,7 +73,7 @@ app.post('/person', async (req, res) => {
       const updatedPerson = await Person.updateOne({ _id: id }, person)
   
       if (updatedPerson.matchedCount === 0) {
-        res.status(422).json({ message: 'Usuário não encontrado!' })
+        res.status(422).json({ message: 'No user found!' })
         return
       }
   
@@ -89,27 +89,27 @@ app.post('/person', async (req, res) => {
     const person = await Person.findOne({ _id: id })
   
     if (!person) {
-      res.status(422).json({ message: 'Usuário não encontrado!' })
+      res.status(422).json({ message: 'No user found!' })
       return
     }
   
     try {
       await Person.deleteOne({ _id: id })
   
-      res.status(200).json({ message: 'Usuário removido com sucesso!' })
+      res.status(200).json({ message: 'User removed sucefully!' })
     } catch (error) {
       res.status(500).json({ erro: error })
     }
   })
   
   app.get('/', (req, res) => {
-    res.json({ message: 'Oi Express!' })
+    res.json({ message: 'Conected!' })
   })
 
 mongoose.set("strictQuery", true);
 mongoose.connect('mongodb+srv://camilasouzadev:1DFwjwgaeX6Mmdzi@apicluster.syvjthh.mongodb.net/?retryWrites=true&w=majority')
 .then(() =>{
-    console.log("sucess connected with MongoDB")
+    console.log("connected with MongoDB")
     app.listen(3000)
 })
 .catch((err)=> console.log(err))
