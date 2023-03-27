@@ -97,6 +97,7 @@ main{
     line-height: 20px;
     letter-spacing: 2px;
 }
+
 .button-primary:hover {
     background-color: #D3B8ED;
     color: white;
