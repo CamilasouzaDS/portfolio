@@ -1,19 +1,24 @@
 body {
     background:#E4DDEB;
     margin: 0px;
-    font-family: 'Montserrat', sans-serif; 
+    font-family:system-ui;
 }
 
 main{
     margin-top: 100px;
     display: flexbox;
 }
+
 .navbar {
     overflow: hidden;
     background-color: #7B4AAA;
     position: fixed;
     top: 0; 
     width: 100%;
+}
+
+h1 {
+    color: #58446B;
 }
 
 .navbar a {
